@@ -1,0 +1,12 @@
+version: "3.6"
+services:
+  telessist:
+    image: techblog/telessist
+    container_name: telessist
+    restart: always
+    environment:
+      - BOT_TOKEN=$BOT_TOKEN #Telegram bot token
+      - OPENAI_KEY=$OPENAI_KEY #OpenAPI API key
+      - ALLOWED_IDS=$ALLOWED_IDS #List Telegram id's allowed to communicate with the bot.
+    volumes:
+      - ./telessist:/app/data
