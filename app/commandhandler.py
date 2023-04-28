@@ -50,7 +50,7 @@ class CommandHandler:
             """
             Check the message and exexute relevant command
             """
-            if msg.startswith("/h"):
+            if msg.startswith("/h") or msg.startswith("/start"):
                 return("""Commands:\n\n/q [question] - Ask a question
                        \n/s [message] - Save your data 
                        \n/f [message] - Find related 
@@ -121,8 +121,8 @@ class CommandHandler:
             audio_file = self.convertToWav(audio_file)
             data= open(audio_file, "rb")
             transcript = openai.Audio.transcribe("whisper-1", data)
-            # os.remove(audio_file)
-            return transcript["text"]
+            os.remove(audio_file)
+            return transcript["text"], str(audio_file)
         except Exception as e:
             logger.error(str(e))
             return("aw snap something went wrong")

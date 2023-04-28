@@ -18,6 +18,29 @@ bot = TeleBot(BOT_TOKEN)
 
 
 
+@bot.message_handler(func=lambda message: True)
+def echo_all(message):
+    result = commandHandler.execute_command(message.text)
+    if message.text.startswith("/d") and result.lower().endswith(".png"):
+        photo = open(str(result),'rb')
+        bot.send_photo(message.chat.id,photo)
+        os.remove(str(result))
+    else:
+        bot.reply_to(message,result, parse_mode='Markdown')
+
+
+# Handles all sent documents and audio files
+@bot.message_handler(content_types=['voice'])
+def handle_docs_audio(message):
+    file_info = bot.get_file(message.voice.file_id)
+    file_path = audio_dir / f'{message.voice.file_unique_id}.ogg'
+    downloaded_file = bot.download_file(file_info.file_path)
+    with open(file_path, 'wb') as new_file:
+        new_file.write(downloaded_file)
+    result = commandHandler.transcript(str(file_path))
+    bot.reply_to(message,result)
+
+	
 
 
 
