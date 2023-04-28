@@ -248,6 +248,10 @@ class CommandHandler:
             logger.info("Converting from wma to WAV")
             sound = AudioSegment.from_file(audio_file, "wma")
             sound.export(output_file, format="wav")
+        if file_extension == ".opus":
+            logger.info("Converting from opus to WAV")
+            sound = AudioSegment.from_file(audio_file, codec="opus")
+            sound.export(output_file, format="wav")
         if file_extension == ".aac":
             logger.info("Converting from aac to WAV")
             sound = AudioSegment.from_file(audio_file, "aac")

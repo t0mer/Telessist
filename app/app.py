@@ -29,7 +29,7 @@ def echo_all(message):
         bot.reply_to(message,result, parse_mode='Markdown')
 
 
-# Handles all sent documents and audio files
+# Handles Voice messages
 @bot.message_handler(content_types=['voice'])
 def handle_docs_audio(message):
     file_info = bot.get_file(message.voice.file_id)
@@ -39,6 +39,19 @@ def handle_docs_audio(message):
         new_file.write(downloaded_file)
     result = commandHandler.transcript(str(file_path))
     bot.reply_to(message,result)
+
+# Handles Audio messages
+@bot.message_handler(content_types=['audio'])
+def handle_docs_audio(message):
+    file_info = bot.get_file(message.audio.file_id)
+    file_path = audio_dir / message.audio.file_name
+    downloaded_file = bot.download_file(file_info.file_path)
+    with open(file_path, 'wb') as new_file:
+        new_file.write(downloaded_file)
+    result = commandHandler.transcript(str(file_path))
+    bot.reply_to(message,result)
+
+	
 
 	
 
