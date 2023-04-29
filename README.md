@@ -1,6 +1,6 @@
 # Telessist
 
-Telessist allows you to contact GPT3 directly from WhatsApp and not only that. Telessist also allows you to save your own personal data and later search and retrieve it using GPT3 to generate a response. In the examples folder, you can see several examples of how to use this bot so you don't have to remember anything ever again.
+Telessist allows you to contact GPT3 directly from Telegram and not only that. Telessist also allows you to save your own personal data and later search and retrieve it using GPT3 to generate a response. In the examples folder, you can see several examples of how to use this bot so you don't have to remember anything ever again.
 
 
 ## Supported Features
@@ -101,7 +101,7 @@ Telessist can be installed and run as a system service or a Docker container.
 
     ```bash
     [Unit]
-    Description=GPT Whatsapp 
+    Description=GPT Telegram 
     After=network-online.target
     Wants=network-online.target systemd-networkd-wait-online.service
     StartLimitIntervalSec=5
