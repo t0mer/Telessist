@@ -12,6 +12,8 @@ ENV BOT_TOKEN ""
 ENV OPENAI_KEY ""
 ENV ALLOWED_IDS = ""
 
+RUN apt update -yqq
+
 RUN apt install -yqq ffmpeg && \
     apt install -yqq libsndfile1-dev && \
     apt install -yqq libffi-dev && \
