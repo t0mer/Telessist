@@ -3,7 +3,7 @@ scipy
 numpy
 plotly
 openai==0.28.1
-pandas
+pandas==1.5.3
 loguru
 wavinfo
 ma-nish
