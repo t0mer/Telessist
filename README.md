@@ -123,7 +123,7 @@ Telessist can be installed and run as a system service or a Docker container.
 
     Next, run the following command to enable and start the service:
     ```bash
-    systemctl enable assist. service
+    systemctl enable Telessist.service
     systemctl start Telessist.service
     ```
     To check the status of the service, run the following command:
