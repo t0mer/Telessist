@@ -16,7 +16,7 @@ pyTelegramBotAPI
 
 pillow>=10.0.1 # not directly required, pinned by Snyk to avoid a vulnerability
 starlette>=0.40.0 # not directly required, pinned by Snyk to avoid a vulnerability
-aiohttp>=3.9.4 # not directly required, pinned by Snyk to avoid a vulnerability
+anyio>=4.4.0 # not directly required, pinned by Snyk to avoid a vulnerability
 anyio>=4.4.0 # not directly required, pinned by Snyk to avoid a vulnerability
 fastapi>=0.109.1 # not directly required, pinned by Snyk to avoid a vulnerability
 validators>=0.21.0 # not directly required, pinned by Snyk to avoid a vulnerability
